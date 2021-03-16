@@ -3,15 +3,21 @@ Pytorch implementation of Graph Matching Networks published in **[ICML 2019](htt
 
 ## Requirements
 Pytorch >=1.6
-CUDA >= 9.1
+
+CUDA >= 9.1 
+
 networkx >= 2.3
+
 torch-sparse==0.6.7 (pip install torch-sparse)
+
 torch-cluster==1.4.5 (pip install torch-cluster)
+
 torch-geometric==1.3.2 (pip install torch-geometric)
 
 
 ## Usage
-The code is split in sub-modules for a cleanr understanding.
+The code is split into sub-modules for a cleaner understanding.
+
 The naming of each of the files is self-explanatory.
 
 ## Credits
