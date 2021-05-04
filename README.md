@@ -36,9 +36,9 @@ The naming of each of the files is self-explanatory.
 ## Citation
 If you find our work useful in your research, please consider citing:
 
-  @inproceedings{patil2020layoutgmn,
-    title={LayoutGMN: Neural Graph Matching for Structural Layout Similarity},
-    author={Patil, Akshay Gadi and Li, Manyi and Fisher, Matthew and Savva, Manolis and Zhang, Hao},
-    booktitle ={proc. of Computer Vision and Pattern Recoginition},
-    year={2021}
-  }
+@inproceedings{yin2020coalesce,
+        author = {Kangxue Yin, Zhiqin Chen, Siddhartha Chaudhuri, Matthew Fisher, Vladimir Kim and Hao Zhang}
+        title = {COALESCE: Component Assembly by Learning to Synthesize Connections}
+        booktitle = {Proc. of 3DV}
+        year = {2020}
+    }
