@@ -33,9 +33,6 @@ The code is split into sub-modules for a cleaner understanding.
 
 The naming of each of the files is self-explanatory.
 
-## Credits
-This Pytroch implementation of the code has been .
-
 ## Citation
 If you find our work useful in your research, please consider citing:
 
