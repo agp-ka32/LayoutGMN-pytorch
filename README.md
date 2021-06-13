@@ -30,6 +30,7 @@ torch-geometric==1.3.2 (pip install torch-geometric)
 
 ## Usage
 [Details will be added soon]
+
 The code is split into sub-modules for a cleaner understanding.
 
 The naming of each of the files is self-explanatory.
