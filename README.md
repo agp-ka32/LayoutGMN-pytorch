@@ -38,9 +38,11 @@ The naming of each of the files is self-explanatory.
 ## Citation
 If you find our work useful in your research, please consider citing:
 
-@article{patil2020layoutgmn,
-  title={LayoutGMN: Neural Graph Matching for Structural Layout Similarity},
-  author={Patil, Akshay Gadi and Li, Manyi and Fisher, Matthew and Savva, Manolis and Zhang, Hao},
-  journal={arXiv preprint arXiv:2012.06547},
-  year={2020}
+@InProceedings{Patil_2021_CVPR,
+    author    = {Patil, Akshay Gadi and Li, Manyi and Fisher, Matthew and Savva, Manolis and Zhang, Hao},
+    title     = {LayoutGMN: Neural Graph Matching for Structural Layout Similarity},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2021},
+    pages     = {11048-11057}
 }
