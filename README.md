@@ -1,5 +1,5 @@
 # LayoutGMN: Neural Graph Matching for Structural Layout Similarity
-This repo provides the source code for our **[CVPR 2021 paper](https://arxiv.org/pdf/2012.06547.pdf)**.
+This repo provides the source code for our **[CVPR 2021 paper](https://openaccess.thecvf.com/content/CVPR2021/papers/Patil_LayoutGMN_Neural_Graph_Matching_for_Structural_Layout_Similarity_CVPR_2021_paper.pdf)**.
 
 Overall, the repo consists of two parts:
 
