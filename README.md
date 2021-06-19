@@ -38,7 +38,7 @@ The naming of each of the files is self-explanatory.
 ## Citation
 If you find our work useful in your research, please consider citing:
 
-'''
+```
 @InProceedings{Patil_2021_CVPR,
     author    = {Patil, Akshay Gadi and Li, Manyi and Fisher, Matthew and Savva, Manolis and Zhang, Hao},
     title     = {LayoutGMN: Neural Graph Matching for Structural Layout Similarity},
@@ -47,4 +47,4 @@ If you find our work useful in your research, please consider citing:
     year      = {2021},
     pages     = {11048-11057}
 }
-'''
+```
