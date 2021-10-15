@@ -1,10 +1,11 @@
 # LayoutGMN: Neural Graph Matching for Structural Layout Similarity
 This repo provides the source code for our **[CVPR 2021 paper](https://openaccess.thecvf.com/content/CVPR2021/papers/Patil_LayoutGMN_Neural_Graph_Matching_for_Structural_Layout_Similarity_CVPR_2021_paper.pdf)**.
 
-Overall, the repo consists of two parts:
+Overall, the repo consists of three parts:
 
 1) Preparing Layout Graphs
-2) Leveraging Graph Matching Networks for structural similarity
+2) Leveraging Graph Matching Networks (GMN)
+3) Training GMN on the layout graphs
 
 # Preparing Layout Graphs
 We used two kinds of layout data in our work: Floorplans and UI designs.
@@ -31,7 +32,9 @@ torch-geometric==1.3.2 (pip install torch-geometric)
 ## Usage
 Once the data is prepared, running the code is easy as it is split into sub-modules for a cleaner understanding.
 
-The naming of each of the files is self-explanatory.
+The training scripts are present in the folder "training_scripts", where the naming of each of the files is self-explanatory.
+
+The scripts for graph matching are present in the main folder (i.e., outside the "training_scripts" directory).
 
 ## Citation
 If you find our work useful in your research, consider citing:
