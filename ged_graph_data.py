@@ -91,7 +91,8 @@ class graph_data(GraphSimilarityDataset):
         self._k_pos = n_changes_positive
         self._k_neg = n_changes_negative
         self._permute = permute
-
+        
+        
 
     def permute_graph_nodes(self, g):
         """Permute node ordering of a graph, returns a new graph."""
