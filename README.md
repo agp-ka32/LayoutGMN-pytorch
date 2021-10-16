@@ -28,13 +28,6 @@ torch-cluster==1.4.5 (pip install torch-cluster)
 torch-geometric==1.3.2 (pip install torch-geometric)
 
 
-## Usage
-Once the data is prepared, running the code is easy as it is split into sub-modules for a cleaner understanding.
-
-The training scripts are present in the folder "training_scripts", where the naming of each of the files is self-explanatory.
-
-The scripts for graph matching are present in the main folder (i.e., outside the "training_scripts" directory).
-
 ## Citation
 If you find our work useful in your research, consider citing:
 
