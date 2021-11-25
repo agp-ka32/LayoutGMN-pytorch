@@ -11,7 +11,6 @@ Created on Mon Oct 28 16:05:38 2019
         2) only choose images whose iou is beteen some range (l_iou, h_iou) --> (0.2-0.4)
            The higher the iou the harder is the negative.
         3) Only choose hard examples just below the postive threshold, and above some iou e.g. (0.4-0.7))
-@author: dipu
 """
 
 import torch
