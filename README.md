@@ -15,17 +15,13 @@ The main machinery in our work is a Graph Matching Network that operates on the 
 We provide our own pytorch implementation of Graph Matching Networks built on top of the Tensorflow **[Colab implementation](https://colab.research.google.com/github/deepmind/deepmind_research/blob/master/graph_matching_networks/graph_matching_networks.ipynb)** by DeepMind Research.
 
 ## Requirements
-Pytorch >=1.6
+All the required modules are present in the `requirements.txt` file. 
+Install all the requirements via
 
-CUDA >= 9.1 
+`pip install -r requirements.txt`
 
-networkx >= 2.3
-
-torch-sparse==0.6.7 (pip install torch-sparse)
-
-torch-cluster==1.4.5 (pip install torch-cluster)
-
-torch-geometric==1.3.2 (pip install torch-geometric)
+You should only care about these:
+Pytorch >=1.6, CUDA >= 9.1, networkx >= 2.3, torch-sparse==0.6.7 (pip install torch-sparse), torch-cluster==1.4.5 (pip install torch-cluster), torch-geometric==1.3.2 (pip install torch-geometric)
 
 
 ## Citation
