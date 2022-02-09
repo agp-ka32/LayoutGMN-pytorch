@@ -20,7 +20,7 @@ Install all the requirements via
 
 `pip install -r requirements.txt`
 
-You should only care about these:
+You should mainly care about these:
 Pytorch >=1.6, CUDA >= 9.1, networkx >= 2.3, torch-sparse==0.6.7 (pip install torch-sparse), torch-cluster==1.4.5 (pip install torch-cluster), torch-geometric==1.3.2 (pip install torch-geometric)
 
 
