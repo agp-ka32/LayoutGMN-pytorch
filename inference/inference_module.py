@@ -15,7 +15,7 @@ import torch
 import torch.nn as nn
 import pickle
 
-
+'''
 class get_sg_data(object):
     def __init__(self, fp_path, config, info):
         super(get_sg_data, self).__init__()
@@ -118,7 +118,7 @@ class compute_and_sort_fp(object):
         self.device = device
 
         self.info = pickle.load(
-            open('/gruvi/usr/akshay/1-FPs/7-FP_Metric/GCN_CNN_scripts/data/FP_box_info_list.pkl', 'rb'))
+            open('../box_info_list.pkl', 'rb')) # path to your pickle file
 
 
     def get_triplet_graph_data(self, query_fp, db_fp_1, db_fp_2):
@@ -184,7 +184,7 @@ class compute_and_sort_fp(object):
 
             np.savetxt(str(query_fp_id)+'_retrievals.txt', similar_fp_list, delimiter='\n', fmt='%s')
             print('Finished saving retrievals for {} file'.format(cnt))
-
+'''
 
 ####################### Batched retrieval code from here ##################################################
 
@@ -349,7 +349,7 @@ class batched_compute_and_sort_fp(object):
         self.device = device
 
         self.info = pickle.load(
-            open('/gruvi/usr/akshay/1-FPs/7-FP_Metric/GCN_CNN_scripts/data/FP_box_info_list.pkl', 'rb'))
+            open('../box_info_list.pkl', 'rb')) #change the path to your pickle file
 
 
 
@@ -433,7 +433,7 @@ if __name__ == '__main__':
 
     gmn_model = gmn_net
     save_dir = '../trained_models/'
-    stored_epoch = '270'
+    stored_epoch = 'xx'
 
     loaded_gmn_model = load_pretrained_model(gmn_model, save_dir, stored_epoch)
 
@@ -456,7 +456,7 @@ if __name__ == '__main__':
 
     query_list_txt_file = 'query_list.txt'
     #db_list_txt_file = 'database_list.txt'
-    db_list_txt_file = '/gruvi/usr/akshay/1-FPs/7-FP_Metric/filtered_fp_files.txt'
+    db_list_txt_file = '../filtered_fp_files.txt'
 
     if batched_retr:
         print('Batched Retrievals')
