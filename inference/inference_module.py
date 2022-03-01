@@ -433,7 +433,7 @@ if __name__ == '__main__':
 
     gmn_model = gmn_net
     save_dir = '../trained_models/'
-    stored_epoch = 'xx'
+    stored_epoch = 'xx' # xx is the epoch number of the saved model
 
     loaded_gmn_model = load_pretrained_model(gmn_model, save_dir, stored_epoch)
 
