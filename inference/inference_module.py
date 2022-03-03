@@ -15,14 +15,14 @@ import torch
 import torch.nn as nn
 import pickle
 
-'''
+
 class get_sg_data(object):
     def __init__(self, fp_path, config, info):
         super(get_sg_data, self).__init__()
         self.fp_path = fp_path
         self.config = config
 
-        self.sg_geometry_dir = '../updated-geometry-directed/'
+        self.sg_geometry_dir = '/gruvi/usr/akshay/3-UIs/UI_Metric/GCN_CNN_data/graph_data/geometry-directed/'
 
         self.info = info
 
@@ -63,30 +63,20 @@ class get_sg_data(object):
         return new_sg_data
 
 
-    def get_box_feats(self, box):
+    def get_box_feats(self,box):
         boxes = np.array(box)
-        x1, y1, w, h = np.hsplit(boxes, 4)
-        x2, y2 = x1 + w, y1 + h
-
-        W, H = 256, 256  # We know the height and weight for all semantic UIs are 2560 and 1400
-        '''
-        x_min = min([x[0] for x in x1])
-        x_max = max([x[0] for x in x2])
-
-        y_min = min([y[0] for y in y1])
-        y_max = max([y[0] for y in y2])
-
-        W = x_max - x_min
-        H = y_max - y_min
-        '''
-
-        box_feats = np.hstack((0.5 * (x1 + x2) / W, 0.5 * (y1 + y2) / H, w / W, h / H, w * h / (W * H)))
-        # box_feats = box_feat / np.linalg.norm(box_feats, 2, 1, keepdims=True)
+        W, H = 1440, 2560  # We know the height and weight for all semantic UIs are 2560 and 1400
+        
+        x1, y1, w, h = np.hsplit(boxes,4)
+        x2, y2 = x1+w, y1+h 
+        
+        box_feats = np.hstack((0.5 * (x1 + x2) / W, 0.5 * (y1 + y2) / H, w/W, h/H, w*h/(W*H)))
+        #box_feats = box_feat / np.linalg.norm(box_feats, 2, 1, keepdims=True)
         return box_feats
 
 
     def _main(self):
-        img_id = self.fp_path.rsplit('/', 1)[1][:-4]
+        img_id = self.fp_path#.rsplit('/', 1)[1][:-4]
         sg_data = self.get_graph_data_by_id(img_id)
 
         return sg_data
@@ -108,7 +98,7 @@ class compute_and_sort_fp(object):
         with open(query_list_txt_file, 'r') as f:
             self.query_list = f.read().splitlines()
 
-        #self.query_list = self.query_list[53:]
+        #self.query_list = self.query_list[6:]
 
         with open(db_list_txt_file, 'r') as f:
             self.db_list = f.read().splitlines()
@@ -118,7 +108,7 @@ class compute_and_sort_fp(object):
         self.device = device
 
         self.info = pickle.load(
-            open('../box_info_list.pkl', 'rb')) # path to your pickle file
+            open('/gruvi/usr/akshay/3-UIs/UI_Metric/GCN_CNN_scripts/data/rico_box_info_list.pkl', 'rb'))
 
 
     def get_triplet_graph_data(self, query_fp, db_fp_1, db_fp_2):
@@ -180,11 +170,12 @@ class compute_and_sort_fp(object):
                 sim_val_list.append(-(sim_2.cpu().detach().numpy()))
 
             similar_fp_list = self.sort_sim_values(sim_val_list)
-            query_fp_id = query_fp.rsplit('/', 1)[1][:-4]
+            #query_fp_id = query_fp.rsplit('/', 1)[1][:-4]
+            query_fp_id = query_fp
 
             np.savetxt(str(query_fp_id)+'_retrievals.txt', similar_fp_list, delimiter='\n', fmt='%s')
             print('Finished saving retrievals for {} file'.format(cnt))
-'''
+
 
 ####################### Batched retrieval code from here ##################################################
 
@@ -198,7 +189,7 @@ class get_batch_sg_data(object):
         self.batch_size = batch_size
         self.config = config
 
-        self.sg_geometry_dir = '../updated-geometry-directed/'
+        self.sg_geometry_dir = '/gruvi/usr/akshay/3-UIs/UI_Metric/GCN_CNN_data/graph_data/geometry-directed/'
 
         self.info = info
 
@@ -241,26 +232,15 @@ class get_batch_sg_data(object):
         return sg_data
 
 
-    def get_box_feats(self, box):
+    def get_box_feats(self,box):
         boxes = np.array(box)
+        W, H = 1440, 2560  # We know the height and weight for all semantic UIs are 2560 and 1400
         
-        x1, y1, w, h = np.hsplit(boxes, 4)
-        x2, y2 = x1 + w, y1 + h
-
-        W, H = 256, 256  # We know the height and weight for all semantic UIs are 2560 and 1400
-        '''
-        x_min = min([x[0] for x in x1])
-        x_max = max([x[0] for x in x2])
-
-        y_min = min([y[0] for y in y1])
-        y_max = max([y[0] for y in y2])
-
-        W = x_max - x_min
-        H = y_max - y_min
-        '''
-
-        box_feats = np.hstack((0.5 * (x1 + x2) / W, 0.5 * (y1 + y2) / H, w / W, h / H, w * h / (W * H)))
-        # box_feats = box_feat / np.linalg.norm(box_feats, 2, 1, keepdims=True)
+        x1, y1, w, h = np.hsplit(boxes,4)
+        x2, y2 = x1+w, y1+h 
+        
+        box_feats = np.hstack((0.5 * (x1 + x2) / W, 0.5 * (y1 + y2) / H, w/W, h/H, w*h/(W*H)))
+        #box_feats = box_feat / np.linalg.norm(box_feats, 2, 1, keepdims=True)
         return box_feats
 
 
@@ -275,9 +255,9 @@ class get_batch_sg_data(object):
 
         for i in range(self.batch_size):
             try:
-                query_id = self.query.rsplit('/', 1)[1][:-4]
-                fp_1_id = self.db_list[start_val + i*2].rsplit('/', 1)[1][:-4]
-                fp_2_id = self.db_list[start_val + i*2 + 1].rsplit('/', 1)[1][:-4]
+                query_id = self.query#.rsplit('/', 1)[1][:-4]
+                fp_1_id = self.db_list[start_val + i*2]#.rsplit('/', 1)[1][:-4]
+                fp_2_id = self.db_list[start_val + i*2 + 1]#.rsplit('/', 1)[1][:-4]
 
                 query_sg = self.get_graph_data_by_id(query_id)
                 fp1_sg = self.get_graph_data_by_id(fp_1_id)
@@ -338,18 +318,17 @@ class batched_compute_and_sort_fp(object):
 
         with open(query_list_txt_file, 'r') as f:
             self.query_list = f.read().splitlines()
-        self.query_list = self.query_list[95:]        
+        #self.query_list = self.query_list[13:]        
 
         with open(db_list_txt_file, 'r') as f:
             self.db_list = f.read().splitlines()
-        self.db_list = self.db_list[:-1] # making it even numbered list
-
+        
         self.config = config
         self.loaded_gmn_model = loaded_gmn_model
         self.device = device
 
         self.info = pickle.load(
-            open('../box_info_list.pkl', 'rb')) #change the path to your pickle file
+            open('/gruvi/usr/akshay/3-UIs/UI_Metric/GCN_CNN_scripts/data/rico_box_info_list.pkl', 'rb'))
 
 
 
@@ -363,9 +342,9 @@ class batched_compute_and_sort_fp(object):
 
     def _main(self, retrieval_batch_size):
         cnt = 0
-
-        for file in self.query_list[0:]:
-            print(cnt)
+        start_idx = 15
+        for file in self.query_list[start_idx:]:
+            print(cnt+start_idx)
             cnt += 1
             batch_cnt = 0
             sim_val_list_1 = []
@@ -408,7 +387,8 @@ class batched_compute_and_sort_fp(object):
             all_sim_val_list[1::2] = sim_val_list_2
 
             similar_fp_list = self.sort_sim_values(all_sim_val_list)
-            query_fp_id = query_fp.rsplit('/', 1)[1][:-4]
+            #query_fp_id = query_fp.rsplit('/', 1)[1][:-4]
+            query_fp_id = query_fp
 
             save_folder = 'results/'
             os.makedirs(save_folder, exist_ok=True)
@@ -427,13 +407,13 @@ class batched_compute_and_sort_fp(object):
 if __name__ == '__main__':
 
     config = get_args()
-    retrieval_batch_size = 2048
+    retrieval_batch_size = 100
 
     batched_retr = True
 
     gmn_model = gmn_net
     save_dir = '../trained_models/'
-    stored_epoch = 'xx' # xx is the epoch number of the saved model
+    stored_epoch = '50'
 
     loaded_gmn_model = load_pretrained_model(gmn_model, save_dir, stored_epoch)
 
@@ -456,7 +436,7 @@ if __name__ == '__main__':
 
     query_list_txt_file = 'query_list.txt'
     #db_list_txt_file = 'database_list.txt'
-    db_list_txt_file = '../filtered_fp_files.txt'
+    db_list_txt_file = 'all_UI_files.txt'
 
     if batched_retr:
         print('Batched Retrievals')
