@@ -15,14 +15,14 @@ import torch
 import torch.nn as nn
 import pickle
 
-
+'''
 class get_sg_data(object):
     def __init__(self, fp_path, config, info):
         super(get_sg_data, self).__init__()
         self.fp_path = fp_path
         self.config = config
 
-        self.sg_geometry_dir = '/gruvi/usr/akshay/3-UIs/UI_Metric/GCN_CNN_data/graph_data/geometry-directed/'
+        self.sg_geometry_dir = '../UI_Metric/GCN_CNN_data/graph_data/geometry-directed/'
 
         self.info = info
 
@@ -108,7 +108,7 @@ class compute_and_sort_fp(object):
         self.device = device
 
         self.info = pickle.load(
-            open('/gruvi/usr/akshay/3-UIs/UI_Metric/GCN_CNN_scripts/data/rico_box_info_list.pkl', 'rb'))
+            open('../UI_Metric/GCN_CNN_scripts/data/rico_box_info_list.pkl', 'rb'))
 
 
     def get_triplet_graph_data(self, query_fp, db_fp_1, db_fp_2):
@@ -175,7 +175,7 @@ class compute_and_sort_fp(object):
 
             np.savetxt(str(query_fp_id)+'_retrievals.txt', similar_fp_list, delimiter='\n', fmt='%s')
             print('Finished saving retrievals for {} file'.format(cnt))
-
+'''
 
 ####################### Batched retrieval code from here ##################################################
 
@@ -189,7 +189,7 @@ class get_batch_sg_data(object):
         self.batch_size = batch_size
         self.config = config
 
-        self.sg_geometry_dir = '/gruvi/usr/akshay/3-UIs/UI_Metric/GCN_CNN_data/graph_data/geometry-directed/'
+        self.sg_geometry_dir = '../UI_Metric/GCN_CNN_data/graph_data/geometry-directed/'
 
         self.info = info
 
@@ -328,7 +328,7 @@ class batched_compute_and_sort_fp(object):
         self.device = device
 
         self.info = pickle.load(
-            open('/gruvi/usr/akshay/3-UIs/UI_Metric/GCN_CNN_scripts/data/rico_box_info_list.pkl', 'rb'))
+            open('../UI_Metric/GCN_CNN_scripts/data/rico_box_info_list.pkl', 'rb'))
 
 
 
@@ -342,7 +342,7 @@ class batched_compute_and_sort_fp(object):
 
     def _main(self, retrieval_batch_size):
         cnt = 0
-        start_idx = 15
+        start_idx = 0
         for file in self.query_list[start_idx:]:
             print(cnt+start_idx)
             cnt += 1
