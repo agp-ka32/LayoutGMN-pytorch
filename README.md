@@ -13,6 +13,8 @@ Our code for layout graph data preparation is, in parts, borrowed from the work 
 
 In case you are looking for apn_dict (anchor-pos-neg) on floorplan data, here is the **[link](https://drive.google.com/file/d/1f-4Ll7HOKsZ2gJQgu9QZD7_MNCO3OOvV/view?usp=sharing)** to download it.
 
+A few other pickle files that are needed for training on RPLAN data include: **[FP_box_info.pkl](https://drive.google.com/file/d/1rRw6XBsSZv9nnHSjj6YTvS-fqvAm_3WT/view?usp=sharing)**, **[FP_box_info_list.pkl](https://drive.google.com/file/d/10Q4EjqqE3kFjP0BTdnE2s0wZ1xycKndG/view?usp=sharing)** and **[FP_data.p](https://drive.google.com/file/d/15U4B59mz54qWIaQXDFV-xXi1Vchn8y_D/view?usp=sharing)**
+
 # Graph Matching Network-pytorch
 The main machinery in our work is a Graph Matching Network that operates on the obtained layout graphs. 
 We provide our own PyTorch implementation of Graph Matching Networks built on top of the Tensorflow **[Colab implementation](https://colab.research.google.com/github/deepmind/deepmind_research/blob/master/graph_matching_networks/graph_matching_networks.ipynb)** by DeepMind Research.
