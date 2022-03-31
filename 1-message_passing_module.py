@@ -55,10 +55,10 @@ def graph_prop_once(node_states, from_idx, to_idx, message_net,
 
     :param to_idx: [n_edges] int tensor, index of the "to nodes"
 
-    :param message_net: an network for the edges; an MLP in our case
+    :param message_net: a network for the edges; an MLP in our case
 
     :param aggregation_module: a module that aggregates messages on edges
-    to aggregated messages for each node.  Should be a callable and can be
+    to aggregated messages for each node.  Should be callable and can be
     called like the following,
         `aggregated_messages = aggregation_module(messages, to_idx, n_nodes)`,
       where messages is [n_edges, edge_message_dim] tensor, to_idx is a [n_edges]
@@ -104,7 +104,7 @@ class GraphPropLayer(nn.Module):
                 reverse_dir_param_different=True,
                 layer_norm=False):
         '''
-
+        :param message_net: a network for the edges; an MLP in our case
         :param node_state_dim: int, dimensionality of node states = 32
 
         :param edge_hidden_sizes: list of ints, hidden sizes for the edge message
